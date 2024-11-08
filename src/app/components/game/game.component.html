@@ -1,0 +1,24 @@
+<div class="min-h-screen p-8">
+  <header class="text-center mb-12">
+    <h1 class="text-4xl font-bold mb-4">Random Activity Selector</h1>
+    <p class="text-xl">Click a deck or roll the dice to reveal an activity!</p>
+  </header>
+
+  <div class="cards-container">
+    <div class="cards-grid">
+      <app-card-deck
+        *ngFor="let deck of decks"
+        [type]="deck"
+        (selected)="selectDeck(deck)"
+        #deckRef
+      ></app-card-deck>
+      <div class="dice-container">
+        <i
+          class="fas fa-dice dice"
+          [class.rolling]="isRolling"
+          (click)="rollDice()"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>

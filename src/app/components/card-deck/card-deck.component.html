@@ -1,0 +1,6 @@
+<app-card
+  [imagePath]="'./assets/' + type + '-card.png'"
+  [content]="currentActivity?.description"
+  [isFlipped]="isFlipped"
+  (click)="flipCard()"
+></app-card>
