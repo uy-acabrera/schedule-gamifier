@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Activity } from '../../services/activity.service';
+import { Activity, ActivityTpe } from '../../services/activity.service';
 import { CardComponent } from '../card/card.component';
 
 @Component({
@@ -11,7 +11,7 @@ import { CardComponent } from '../card/card.component';
   styleUrls: ['./card-deck.component.css']
 })
 export class CardDeckComponent {
-  @Input() type!: string;
+  @Input() type!: ActivityTpe;
   @Output() selected = new EventEmitter<void>();
   
   isFlipped = false;

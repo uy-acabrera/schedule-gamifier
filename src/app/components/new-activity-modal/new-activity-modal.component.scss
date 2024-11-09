@@ -1,0 +1,20 @@
+:host {
+  background-color: #080708;
+}
+
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  padding: 5px 10px;
+  background: linear-gradient(to bottom right, #353333, #080708);
+  color: white;
+  font-size: larger;
+  margin-right: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

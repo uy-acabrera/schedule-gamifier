@@ -1,7 +1,12 @@
 <div class="min-h-screen p-8">
-  <header class="text-center mb-12">
-    <h1 class="text-4xl font-bold mb-4">Random Activity Selector</h1>
-    <p class="text-xl">Click a deck or roll the dice to reveal an activity!</p>
+  <header>
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">Random Activity Selector</h1>
+      <p class="text-xl">Click a deck or roll the dice to reveal an activity!</p>
+    </div>
+    <div class="new-activity-container">
+      <button class="new-activity-button" (click)="openNewActivityModal()">Add new activity</button>
+    </div>
   </header>
 
   <div class="cards-container">
@@ -13,11 +18,8 @@
         #deckRef
       ></app-card-deck>
       <div class="dice-container">
-        <i
-          class="fas fa-dice dice"
-          [class.rolling]="isRolling"
-          (click)="rollDice()"
-        ></i>
+        <img *ngIf="isRolling" src="assets/dice.gif" alt="">
+        <img *ngIf="!isRolling" src="assets/dice-static.jpg" alt="" (click)="rollDice()">
       </div>
     </div>
   </div>

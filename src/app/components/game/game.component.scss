@@ -1,0 +1,84 @@
+:host {
+  display: block;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cards {
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 220px);
+    grid-template-rows: repeat(2, 300px);
+    gap: 8rem 8rem;
+    position: relative;
+  }
+}
+
+.dice {
+  &-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &.rolling {
+    animation: roll 0.6s ease;
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.new-activity {
+  &-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+
+  &-button {
+    padding: 5px 10px;
+    background: linear-gradient(to bottom right, #353333, #080708);
+    color: white;
+    font-size: larger;
+  
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+

@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Add new Activity</h2>
+<mat-dialog-content>
+
+  <mat-form-field>
+    <mat-label>Activity Type</mat-label>
+    <mat-select [(ngModel)]="activityType">
+      <mat-option value="mental">Mental</mat-option>
+      <mat-option value="creative">Creative</mat-option>
+      <mat-option value="physical">Physical</mat-option>
+      <mat-option value="relaxing">Relaxing</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea [(ngModel)]="description" matInput placeholder="Do 10 minutes of..."></textarea>
+  </mat-form-field>
+  
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="button" (click)="cancel()">Cancel</button>
+  <button class="button" (click)="accept()">Accept</button>
+</mat-dialog-actions>
