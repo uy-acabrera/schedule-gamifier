@@ -1,6 +1,12 @@
 {
-  "name": "angular-starter",
+  "name": "schedule-gamifier",
   "private": true,
+  "version": "1.0.0",
+  "author": {
+    "name": "Alex Cabrera",
+    "email": "uy.acabrera@gmail.com",
+    "url": "https://www.linkedin.com/in/alex-cabrera-4bb46b58/"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
