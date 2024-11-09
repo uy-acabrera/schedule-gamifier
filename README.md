@@ -16,7 +16,7 @@
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/productivity-playground.git
+   git clone https://github.com/uy-acabrera/schedule-gamifier.git
    ```
 2. **Install Dependencies**:
    ```bash
