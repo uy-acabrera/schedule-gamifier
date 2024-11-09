@@ -20,12 +20,12 @@
    ```
 2. **Install Dependencies**:
    ```bash
-   cd productivity-playground
+   cd schedule-gamifier
    npm install
    ```
 3. **Run the Application**:
    ```bash
-   cd productivity-playground
+   cd schedule-gamifier
    npm start
    ```
 
