@@ -18,3 +18,9 @@ mat-dialog-content {
     cursor: pointer;
   }
 }
+
+::ng-deep .error-snackbar {
+  .mat-mdc-snackbar-surface {
+    background-color: #8B0000 !important;
+  }
+}

@@ -33,10 +33,6 @@
 
 .card-front {
   overflow: hidden;
-
-  /* &:hover {
-    box-shadow: 0 0 15px 5px rgba(0, 150, 255, 0.7);
-  } */
 }
 
 .card-image {
@@ -51,4 +47,8 @@
   color: white;
   padding: 20px;
   font-size: larger;
+
+  &-time {
+    position: absolute; top: 15px; right: 15px; color: #ccc
+  }
 }

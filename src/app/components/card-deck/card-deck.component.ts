@@ -1,6 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Activity, ActivityTpe } from '../../services/activity.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ActivityType } from '../../enums/activity-type.enum';
+import { Activity } from '../../interfaces/activity.interface';
 import { CardComponent } from '../card/card.component';
 
 @Component({
@@ -8,10 +9,10 @@ import { CardComponent } from '../card/card.component';
   standalone: true,
   imports: [CommonModule, CardComponent],
   templateUrl: './card-deck.component.html',
-  styleUrls: ['./card-deck.component.css']
+  styleUrls: ['./card-deck.component.scss']
 })
 export class CardDeckComponent {
-  @Input() type!: ActivityTpe;
+  @Input() type!: ActivityType;
   @Output() selected = new EventEmitter<void>();
   
   isFlipped = false;
@@ -32,10 +33,5 @@ export class CardDeckComponent {
     } else {
       this.isFlipped = false;
     }
-  }
-
-  reset() {
-    this.isFlipped = false;
-    this.currentActivity = null;
   }
 }

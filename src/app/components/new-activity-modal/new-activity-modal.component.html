@@ -15,6 +15,11 @@
     <mat-label>Description</mat-label>
     <textarea [(ngModel)]="description" matInput placeholder="Do 10 minutes of..."></textarea>
   </mat-form-field>
+
+  <mat-label>Time in minutes (up to 60)</mat-label>
+  <mat-slider min="1" max="60" step="1" showTickMarks discrete [displayWith]="formatLabel">
+    <input [(ngModel)]="time" matSliderThumb value="1">
+  </mat-slider>
   
 </mat-dialog-content>
 <mat-dialog-actions>

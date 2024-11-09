@@ -65,5 +65,10 @@
       "sourceRoot": "src"
     }
   },
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
   "version": 1
 }

@@ -1,16 +1,8 @@
 import { Injectable } from '@angular/core';
-
-export interface Activity {
-  type: ActivityTpe;
-  description: string;
-}
-
-export enum ActivityTpe {
-  mental = 'mental',
-  creative = 'creative',
-  physical = 'physical',
-  relaxing = 'relaxing',
-}
+import { ActivityType } from '../enums/activity-type.enum';
+import { Mood } from '../enums/mood.enum';
+import { Activity } from '../interfaces/activity.interface';
+import { MoodToActivityMapping } from '../interfaces/mood-to-activity-mapping';
 
 @Injectable({
   providedIn: 'root'
@@ -50,12 +42,22 @@ export class ActivityService {
     }
   }
 
-  getRandomActivity(type: ActivityTpe): Activity {
-    const filteredActivities = type 
-      ? this.activities.filter(activity => activity.type === type)
-      : this.activities;
+  private getRecommendedActivities(mood: Mood, activities: Activity[]): Activity[] {
+    const { types, maxTime } = MoodToActivityMapping[mood];
+    return activities.filter(activity => 
+      types.includes(activity.type) && 
+      activity.time <= maxTime
+    );
+  }
+
+  getRandomActivity(type?: ActivityType, mood?: Mood): Activity {
+    const filteredActivitiesByMood = mood ? this.getRecommendedActivities(mood, this.activities) : this.activities;
+
+    const filteredActivitiesByType = type 
+      ? filteredActivitiesByMood.filter(activity => activity.type === type)
+      : filteredActivitiesByMood;
     
-    return filteredActivities[Math.floor(Math.random() * filteredActivities.length)];
+    return filteredActivitiesByType[Math.floor(Math.random() * filteredActivitiesByType.length)];
   }
 
   saveActivity(activity: Activity) {
@@ -64,3 +66,37 @@ export class ActivityService {
     localStorage.setItem('activities', activitiesJSON);
   }
 }
+
+/**
+
+  Mood-to-Task Mapping:
+
+  Annoyed / Frustrated
+  Recommended Task: Relaxing
+  Rationale: If the user is feeling irritated, a relaxing task can help them cool off and reset. Activities like breathing exercises, a short meditation, or even listening to calming music can restore calm and clarity.
+
+  Determined / Motivated
+  Recommended Task: Physical Activity
+  Rationale: When a person is determined, they have a surge of energy and focus that can be channeled into a high-energy task. Physical tasks like quick workouts, stretches, or even a brisk walk will help them make the most of this drive.
+
+  Reluctant / Hesitant
+  Recommended Task: Mental (Focus)
+  Rationale: Reluctance often stems from uncertainty or lack of clarity. A mental focus task, such as a quick planning or brainstorming session, can help ease them into productive work by giving direction and breaking the ice on larger tasks.
+
+  Procrastinating / Avoidant
+  Recommended Task: Creative Task
+  Rationale: Creativity can provide a gentle “in” when someone is stalling. Engaging in a low-pressure creative activity like doodling, journaling, or brainstorming could ease them into a state of productivity without feeling forced.
+
+  “One Step at a Time” / Overwhelmed
+  Recommended Task: Small, Manageable Tasks (Any Category)
+  Rationale: For someone feeling overwhelmed, small, bite-sized tasks can build momentum. These could span categories but focus on simple, quick wins (e.g., organizing one part of their desk, a quick list of priorities, or a short stretch).
+
+  Resigned / Obligated
+  Recommended Task: Mental (Structured Task)
+  Rationale: Resignation often means they’re committed to following through but lack excitement. Structured mental tasks (like a checklist or planning) match this mood by providing a straightforward path to completing what needs to be done.
+
+  Amused / Ironic
+  Recommended Task: Light Creative Task or Fun Physical Activity
+  Rationale: When feeling amused or self-ironic, they’re already light-hearted, so a fun creative task or light physical activity that doesn’t feel too serious can sustain this humor, turning it into a positive push.
+ 
+*/

@@ -3,8 +3,9 @@
     <div class="card-front">
       <img [src]="imagePath" class="card-image">
     </div>
-    <div class="card-back" *ngIf="content">
-      <p>{{ content }}</p>
+    <div class="card-back">
+      <span class="card-back-time" *ngIf="activity?.time">{{ activity?.time + '\'' }}</span>
+      <p>{{ activity?.description }}</p>
     </div>
     
   </div>

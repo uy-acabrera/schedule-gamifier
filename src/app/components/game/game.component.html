@@ -1,7 +1,7 @@
 <div class="min-h-screen p-8">
   <header>
     <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold mb-4">Random Activity Selector</h1>
+      <h1 class="text-4xl font-bold mb-4">The Productivity Playground</h1>
       <p class="text-xl">Click a deck or roll the dice to reveal an activity!</p>
     </div>
     <div class="new-activity-container">
@@ -10,6 +10,52 @@
   </header>
 
   <div class="cards-container">
+    <div class="mood-selector">
+      <mat-button-toggle-group [(ngModel)]="selectedMood" appearance="legacy" color="primary">
+        <!-- Annoyed / Frustrated -->
+        <mat-button-toggle matTooltip="Irritated and feeling resistance toward tasks."
+                           value="annoyed" class="mode-btn annoyed">
+          😤 Annoyed
+        </mat-button-toggle>
+
+        <!-- Overwhelmed / One Step at a Time -->
+        <mat-button-toggle matTooltip="Feeling burdened by the workload, easily overwhelmed."
+                           value="overwhelmed" class="mode-btn overwhelmed">
+          😵 Overwhelmed
+        </mat-button-toggle>
+
+        <!-- Procrastinating / Avoidant -->
+        <mat-button-toggle matTooltip="Tendency to avoid tasks, often due to uncertainty."
+                           value="procrastinating" class="mode-btn procrastinating">
+          🐢 Procrastinating
+        </mat-button-toggle>
+
+        <!-- Reluctant / Hesitant -->
+        <mat-button-toggle matTooltip="Reluctant, feeling unsure or lacking enthusiasm."
+                           value="reluctant" class="mode-btn reluctant">
+          😬 Reluctant
+        </mat-button-toggle>
+    
+        <!-- Resigned / Obligated -->
+        <mat-button-toggle matTooltip="Committed to tasks out of duty, though without enthusiasm."
+                           value="resigned" class="mode-btn resigned">
+          😕 Resigned
+        </mat-button-toggle>
+    
+        <!-- Amused / Ironic -->
+        <mat-button-toggle matTooltip="A light-hearted mood, often seeing humor in the situation."
+                           value="amused" class="mode-btn amused">
+          😏 Amused
+        </mat-button-toggle>
+
+        <!-- Determined / Motivated -->
+        <mat-button-toggle matTooltip="Strong motivation to tackle tasks with focus."
+                           value="determined" class="mode-btn determined">
+          💪 Determined
+        </mat-button-toggle>   
+      </mat-button-toggle-group>
+    </div>
+
     <div class="cards-grid">
       <app-card-deck
         *ngFor="let deck of decks"

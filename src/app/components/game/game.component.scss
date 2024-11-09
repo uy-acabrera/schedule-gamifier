@@ -11,9 +11,9 @@ header {
 .cards {
   &-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 70vh;
   }
 
   &-grid {
@@ -82,3 +82,72 @@ header {
   }
 }
 
+/* your-component.component.css */
+
+/* Container styling */
+.mood-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+/* Button styling */
+.mode-btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-right: 20px;
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  border-radius: 4px;
+}
+
+/* Neon colors with bottom-focused glow effect for each mood button */
+.annoyed {
+  background-color: #8B0000;
+  box-shadow: 0px 5px 25px #8B0000;
+  opacity: 0.7;
+}
+
+.overwhelmed {
+  background-color: #4B0082;
+  box-shadow: 0px 5px 25px #4B0082;
+  opacity: 0.7;
+}
+
+.procrastinating {
+  background-color: #708090;
+  box-shadow: 0px 5px 25px #708090;
+  opacity: 0.7;
+}
+
+.reluctant {
+  background-color: #6B8E23;
+  box-shadow: 0px 5px 25px #6B8E23;
+  opacity: 0.7;
+}
+
+.resigned {
+  background-color: #778899;
+  box-shadow: 0px 5px 25px #778899;
+  opacity: 0.7;
+}
+
+.amused {
+  background-color: #FFD700;
+  box-shadow: 0px 5px 25px #FFD700;
+  opacity: 0.7;
+}
+
+.determined {
+  background-color: #32CD32;
+  box-shadow: 0px 5px 25px #32CD32;
+  opacity: 0.7;
+}
+
+.mat-button-toggle-standalone, .mat-button-toggle-group {
+  overflow: visible;
+}
+
+mat-button-toggle-group .mat-button-toggle-checked.mode-btn {
+  opacity: 1;
+}
