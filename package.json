@@ -10,7 +10,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build"
+    "build": "ng build",
+    "build-github": "ng build --output-path docs --base-href /schedule-gamifier/ && mv docs/browser/* docs/ && rmdir docs/browser"
   },
   "dependencies": {
     "@angular/animations": "^18.1.0",
